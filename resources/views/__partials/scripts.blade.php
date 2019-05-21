@@ -10,47 +10,43 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-    var $video  = $('#render2'),
+    var $video = $('#render2'),
         $window = $(window);
 
-    $(window).resize(function(){
+    $(window).resize(function () {
         var height = $window.height();
         $video.css('height', height);
 
         var videoWidth = $video.width(),
             windowWidth = $window.width(),
-            marginLeftAdjust =   (windowWidth - videoWidth) / 2;
+            marginLeftAdjust = (windowWidth - videoWidth) / 2;
 
         $video.css({
             'height': height,
-            'marginLeft' : marginLeftAdjust
+            'marginLeft': marginLeftAdjust
         });
     }).resize();
 </script>
 
 <script>
     $('.idDel').on('click', function (event) {
-        alert("hoolaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa leslye yo te amooooo");
-        console.log("asdasdasd");
         event.preventDefault();
+        let $form = '#' + $(this).attr('book');
+        call($form);
     });
 
-    function call() {
+    function call($form) {
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "Estás Seguro?",
+            text: "Una vez eliminado, no podrá recuperar este libro!",
             icon: "warning",
-            buttons: true,
+            buttons: ['Cancelar', 'Eliminar'],
             dangerMode: true,
         })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Poof! Your imaginary file has been deleted!", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("Your imaginary file is safe!");
-                }
-            });
+        .then((flag) => {
+            if (flag) {
+                $($form).submit();
+            }
+        });
     }
 </script>

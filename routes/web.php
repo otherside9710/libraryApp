@@ -15,13 +15,15 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/peliculas/existencia', 'BooksController@existencia')->name('existencia');
-    Route::get('/peliculas/agregar/index', 'BooksController@agregarIndex')->name('agregarIndex');
-    Route::post('/peliculas/agregar', 'BooksController@addBook')->name('pelicula.agregar');
-    Route::get('/peliculas', 'BooksController@index')->name('pelicula');
-    Route::get('/pelicula/reservar/{id}', 'BooksController@reservarIndex')->name('pelicula.reservarIndex');
-    Route::post('/pelicula/reservar', 'BooksController@reservar')->name('pelicula.reservar');
-    Route::post('/pelicula/eliminar/{id}', 'BooksController@delete')->name('pelicula.delete');
-    Route::get('/pelicula/actualizar/{id}', 'BooksController@updateIndex')->name('pelicula.updateIndex');
-    Route::post('/pelicula/actualizar', 'BooksController@update')->name('book.update');
+    Route::get('/libros/existencia', 'BooksController@existencia')->name('existencia');
+    Route::get('/libros/agregar/index', 'BooksController@agregarIndex')->name('agregarIndex');
+    Route::post('/libros/agregar', 'BooksController@addBook')->name('pelicula.agregar');
+    Route::get('/libros', 'BooksController@index')->name('pelicula');
+    Route::get('/libros/reservar/{id}', 'BooksController@reservarIndex')->name('pelicula.reservarIndex');
+    Route::post('/libros/reservar', 'BooksController@reservar')->name('pelicula.reservar');
+    Route::post('/libros/eliminar/{id}', 'BooksController@delete')->name('book.delete');
+    Route::get('/libros/actualizar/{id}', 'BooksController@updateIndex')->name('pelicula.updateIndex');
+    Route::post('/libros/actualizar', 'BooksController@update')->name('book.update');
+    Route::get('/libros/devolver', 'BooksController@backIndex')->name('book.backIndex');
+    Route::get('/libros/devolver/{id}', 'BooksController@back')->name('book.back');
 });

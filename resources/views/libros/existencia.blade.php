@@ -68,9 +68,9 @@
                                             </form>
                                         </li>
                                         <li class="list-group-item" style="padding: 0">
-                                            <form action="{{route('pelicula.delete',$book->id)}}" method="POST">
-                                                <input name="id" class="idDel" type="hidden" value="{{}}">
-                                                <button class="btn btn-block btn-outline-danger"
+                                            <form id="delForm{{$book->id}}" action="{{route('book.delete',$book->id)}}" method="POST">
+                                                {{csrf_field()}}
+                                                <button book="delForm{{$book->id}}" class="idDel btn btn-block btn-outline-danger"
                                                         style="margin-bottom: 10px;margin-top: 10px;">Eliminar
                                                 </button>
                                             </form>

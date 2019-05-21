@@ -43,6 +43,12 @@
                     <span class="menu-title">Agregar Libros</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('book.backIndex')}}" @if(Request::is('/peliculas/agregar/devolver')) class="active" @endif>
+                    <i class="menu-icon fa fa-undo-alt"></i>
+                    <span class="menu-title">Devolver Libros</span>
+                </a>
+            </li>
         @endif
     </ul>
 </nav>

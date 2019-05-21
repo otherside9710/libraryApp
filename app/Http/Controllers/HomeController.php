@@ -21,16 +21,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        $reservadas = Loans::all();
+        $reservadas = Loans::where('returned', 'N')->get();
+
         $reservadasTotal = Loans::all()->count();
         $totalStudent = Student::all()->count();
         $peliculasTotal = Book::all()->count();
         $bookMax = BookMax::all();
         $cont = null;
-
-        if (Auth::user()->rol == 'admin'){
-            $reservadas = Loans::all();
-        }
 
         $array = [];
         $reservadasCollection = null;
